@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D and 3D Transforms</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+}
+
+.section {
+  margin: 20px 0;
+  text-align: center;
+}
+.runner {
+  width: 100px;
+  height: 100px;
+  background: url('running.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  margin: 20px auto;
+  transition: transform 1s ease;
+}
+
+.runner:hover {
+  transform: translateX(200px);
+}
+.cube-container {
+  perspective: 800px;
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+}
+
+.cube {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+  transition: transform 1s ease;
+  margin: 0 auto;
+}
+
+.cube:hover {
+  transform: rotateX(45deg) rotateY(45deg);
+}
+
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #2c75b4;
+  opacity: 0.9;
+  border: 2px solid #fff;
+}
+
+.front {
+  transform: translateZ(50px);
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+</style>
+<body>
+  <div class="container">
+    <div class="section">
+      <h2>2D Transform</h2>
+      <div class="runner"></div>
+    </div>
+    <div class="section">
+      <h2>3D Transform</h2>
+      <br>
+      <div class="cube-container">
+        <div class="cube">
+          <div class="face front"></div>
+          <div class="face back"></div>
+          <div class="face left"></div>
+          <div class="face right"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
